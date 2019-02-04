@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="stylesheet" href="https://ssl.gstatic.com/docs/script/css/add-ons1.css">
+    <style>
+      .toc_settings label  {
+      padding-right: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+      <table class="toc_settings">
+        <tbody>
+          <tr>
+            <td><label>Heading number format:</label></td>
+            <td>
+              <select id="heading_format">
+                <option value="format_1">1.2.3</option>
+                <!-- <option value="format_2">1.2.3.</option> -->
+                <option value="none">None</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td><label>Numbering level:</label></td>
+            <td>
+              <select id="max_heading_level">
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+              </select>
+            </td>
+          </tr>
+          <tr>
+            <td/>
+            <td>
+              <button onclick="updateHeadings(); return false;" class="action"><img src="https://ssl.gstatic.com/docs/common/arrow_spinner.svg" style="position: relative; top: 3px;"></button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <script>
+        function displayHeadings() {
+        }
+        
+        function showError() {
+        }
+      
+        function updateHeadings() {
+        google.script.run
+        .withSuccessHandler(displayHeadings)
+        .withFailureHandler(showError)
+        .updateHeadings(document.getElementById('max_heading_level').value, document.getElementById('heading_format').value);
+        }
+      </script>
+    </div>
+  </body>
+</html>
+
+
